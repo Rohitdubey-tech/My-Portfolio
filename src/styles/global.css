@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  background: #0a0a0a;
+  color: white;
+  font-family: sans-serif;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px;
+}
+
+.section {
+  padding: 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  background: #111;
+}
+.skills span {
+  margin: 5px;
+  padding: 5px 10px;
+  background: #222;
+}

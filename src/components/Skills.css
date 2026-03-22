@@ -1,0 +1,110 @@
+/* src/components/Skills.css */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-auto-rows: minmax(min-content, max-content);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.bento-card {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.bento-wide {
+  grid-column: 1 / -1;
+  background: linear-gradient(145deg, rgba(30, 30, 40, 0.8) 0%, rgba(20, 20, 30, 0.6) 100%);
+}
+
+.bento-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent-cyan);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.bento-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.bento-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.bento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.bento-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px; /* Boxier tags for bento feel */
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+
+.skill-logo {
+  font-size: 1.1rem;
+  color: var(--accent-neon-green);
+}
+
+.skill-logo-group {
+  display: flex;
+  gap: 3px;
+  font-size: 1.1rem;
+  color: var(--accent-neon-green);
+}
+
+.bento-tag:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.large-tags .bento-tag {
+  font-size: 0.95rem;
+  padding: 0.6rem 1.25rem;
+}
+
+.bento-tag.primary {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--accent-cyan);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.bento-tag.primary:hover {
+  background: rgba(56, 189, 248, 0.2);
+}
+
+.bento-tag.outline {
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .bento-card {
+    padding: 1.75rem;
+  }
+}

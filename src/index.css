@@ -1,0 +1,181 @@
+/* src/index.css */
+:root {
+  /* Futuristic Color Palette */
+  --bg-dark: #020617; /* Slate 950 / Deep Black-Blue */
+  --bg-deep-blue: #0A192F; /* Navy Blue Accent */
+  
+  /* Neumorphic base colors */
+  --neu-bg: #0A0F1A;
+  --neu-light: rgba(255, 255, 255, 0.03);
+  --neu-dark: rgba(0, 0, 0, 0.6);
+  
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  
+  --accent-neon-green: #00FF66; /* Glowing neon green */
+  --accent-cyan: #00E5FF;
+  
+  --glass-bg: rgba(10, 25, 47, 0.4);
+  --glass-border: rgba(0, 255, 102, 0.2);
+
+  /* Typography */
+  --font-heading: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 4rem;
+  --spacing-xxl: 8rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; 
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  
+  /* Futuristic gradient background */
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(10, 25, 47, 1), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(0, 255, 102, 0.05), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(0, 229, 255, 0.05), transparent 50%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: var(--spacing-xxl) 0;
+  position: relative;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: var(--spacing-xl);
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+/* --- The Futuristic Glass/Neumorphism Mix --- */
+
+/* 1. Neumorphic Buttons/Pills */
+.neu-pill {
+  background: var(--neu-bg);
+  box-shadow: 
+    -4px -4px 8px var(--neu-light),
+    4px 4px 8px var(--neu-dark);
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  color: var(--text-primary);
+  border: 1px solid rgba(255,255,255,0.01);
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.neu-pill:hover {
+  box-shadow: 
+    inset -4px -4px 8px var(--neu-light),
+    inset 4px 4px 8px var(--neu-dark);
+  color: var(--accent-neon-green);
+}
+
+/* 2. Glassmorphic + Glowing Panels for Cards */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glowing pseudo-element on hover */
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--accent-neon-green), transparent, var(--accent-cyan));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  pointer-events: none;
+}
+
+.glass-panel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 255, 102, 0.08);
+}
+
+.glass-panel:hover::before {
+  opacity: 1;
+}
+
+/* Typography Enhancements */
+.text-neon {
+  color: var(--accent-neon-green);
+  text-shadow: 0 0 15px rgba(0, 255, 102, 0.5);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #FFFFFF, var(--text-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Base Scroll Animations */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

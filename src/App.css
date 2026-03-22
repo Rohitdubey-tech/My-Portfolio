@@ -1,0 +1,89 @@
+/* src/App.css */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  z-index: 1;
+  overflow: hidden; /* contain floating bg elements */
+}
+
+main {
+  position: relative;
+  z-index: 10;
+}
+
+/* 3D Floating Objects Container */
+.floating-elements {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* A generic floating object class */
+.float-obj {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 102, 0.2);
+  box-shadow: 0 0 30px rgba(0, 255, 102, 0.1);
+  animation: float-3d 8s infinite ease-in-out alternate;
+}
+
+/* Shape 1: Crypto Coin abstraction */
+.float-1 {
+  width: 15vw;
+  height: 15vw;
+  border-radius: 50%;
+  top: 15%;
+  right: 10%;
+  background: linear-gradient(135deg, rgba(0, 255, 102, 0.1), transparent);
+  border: 1px solid rgba(0, 255, 102, 0.3);
+  animation-delay: 0s;
+}
+
+/* Shape 2: Wallet/Card abstraction */
+.float-2 {
+  width: 25vw;
+  height: 15vw;
+  border-radius: 20px;
+  bottom: 20%;
+  left: -5%;
+  transform: rotate(-15deg);
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.05), rgba(10, 25, 47, 0.5));
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+/* Shape 3: Chart/Pyramid abstraction */
+.float-3 {
+  width: 0;
+  height: 0;
+  border-left: 8vw solid transparent;
+  border-right: 8vw solid transparent;
+  border-bottom: 14vw solid rgba(0, 255, 102, 0.05);
+  top: 60%;
+  right: -5%;
+  background: transparent;
+  border-top: none;
+  box-shadow: none;
+  filter: drop-shadow(0 0 20px rgba(0, 255, 102, 0.2));
+  animation-delay: -5s;
+  animation-duration: 12s;
+}
+
+/* 3D float keyframes */
+@keyframes float-3d {
+  0% {
+    transform: translateY(0) rotateX(0) rotateY(0);
+  }
+  50% {
+    transform: translateY(-30px) rotateX(10deg) rotateY(15deg);
+  }
+  100% {
+    transform: translateY(10px) rotateX(-5deg) rotateY(-10deg);
+  }
+}

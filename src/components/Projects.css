@@ -1,0 +1,124 @@
+/* src/components/Projects.css */
+.section-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-top: -3rem; /* pull up closer to title */
+}
+
+.modern-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 0; /* padding handled inside */
+}
+
+.project-content {
+  padding: 2.5rem 2.5rem 1.5rem 2.5rem;
+}
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.project-role {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: var(--accent-purple);
+  font-weight: 600;
+}
+
+.project-date {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.project-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.tech-chip {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-footer {
+  padding: 1.5rem 2.5rem;
+  border-top: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.2);
+  transition: background var(--transition-fast);
+}
+
+.project-footer:hover {
+  background: rgba(56, 189, 248, 0.05);
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.project-link:hover {
+  color: var(--accent-neon-green);
+}
+
+.project-link .icon {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-fast);
+}
+
+.project-link:hover .icon {
+  transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+  .modern-projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .project-content {
+    padding: 2rem;
+  }
+  .project-footer {
+    padding: 1.5rem 2rem;
+  }
+}
